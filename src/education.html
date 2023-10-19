@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Anjali Khatri-education</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.2.2/circle-progress.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <a
+        class="navbar-brand"
+        href="#"
+        style="font-size: 24px; margin-left: 30px"
+        >WELCOME!</a
+      >
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div
+        class="collapse navbar-collapse justify-content-center"
+        id="navbarNavDropdown"
+      >
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="projects.html">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdownMenuLink"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Expanded Insight
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="education.html">Education</a>
+              <a class="dropdown-item" href="skills.html">Skills</a>
+              
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav><!-- Bootstrap JavaScript and your custom script -->
+    <div class="center-container">
+      
+        <div class="container my-5 education-certificates-container" id="content-container">
+          <!-- Left Column with Image -->
+          <div class="image-column">
+            <img src="../assets/images/eduaction.png" alt="Your Image" class="img-fluid" width="300" height="200">
+
+          </div>
+          <!-- Right Column with Education and Certificates -->
+          <div class="info-column">
+            <h2>"Let me present a succinct account of my academic journey."</h2>
+            <button class="btn btn-secondary" id="educationBtn">Education Info</button>
+            <button class="btn btn-secondary ml-2" id="certificatesBtn">Certificates</button>
+            <div id="educationInfo" style="display: none;">
+              <h3>SGT UNIVERSITY-[2019-2023]</h3>
+              <p>Btech Cse [specialization In IBM-Cloud Computing]</p>
+              <h3>Air Force School-[2015-2017]</h3>
+              <p>10 Grade: Aggregate-8.4 CGPA</p>
+              <h3>KVS sec-14[2017-2019]</h3>
+              <p>12 Grade: Aggregate-70%</p>
+            </div>
+            <div id="certificatesInfo" style="display: none;">
+              <div class="certificate-buttons">
+                <button class="btn btn-secondary" id="certificate1Btn">Meta Front End Development</button>
+                <button class="btn btn-secondary" id="certificate2Btn">Python</button>
+                <button class="btn btn-secondary" id="certificate3Btn">HTML 5</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <script>
+        var educationBtn = document.getElementById("educationBtn");
+        var certificatesBtn = document.getElementById("certificatesBtn");
+        var educationInfo = document.getElementById("educationInfo");
+        var certificatesInfo = document.getElementById("certificatesInfo");
+      
+        educationBtn.addEventListener("click", function () {
+          if (educationInfo.style.display === "none") {
+            educationInfo.style.display = "block";
+            certificatesInfo.style.display = "none";
+          } else {
+            educationInfo.style.display = "none";
+          }
+        });
+      
+        certificatesBtn.addEventListener("click", function () {
+          if (certificatesInfo.style.display === "none") {
+            certificatesInfo.style.display = "block";
+            educationInfo.style.display = "none";
+          } else {
+            certificatesInfo.style.display = "none";
+          }
+        });
+      </script>
+      <script>// Add these variables at the beginning of your JavaScript code
+        var certificate1Btn = document.getElementById("certificate1Btn");
+        var certificate2Btn = document.getElementById("certificate2Btn");
+        var certificate3Btn = document.getElementById("certificate3Btn");
+        
+        // Add click event listeners for the certificate buttons
+        certificate1Btn.addEventListener("click", function () {
+          downloadCertificate("../assets/images/front end development meta.pdf");
+        });
+        
+        certificate2Btn.addEventListener("click", function () {
+          downloadCertificate("../assets/images/python.pdf");
+        });
+        
+        certificate3Btn.addEventListener("click", function () {
+          downloadCertificate("../assets/images/html5.pdf");
+        });
+        
+        // Function to download certificates
+        function downloadCertificate(certificateName) {
+          // Replace 'certificate1.pdf', 'certificate2.pdf', and 'certificate3.pdf' with actual file URLs.
+          var certificateURL = certificateName;
+          
+          var a = document.createElement("a");
+          a.href = certificateURL;
+          a.download = certificateName;
+          document.body.appendChild(a);
+          a.style = "display: none";
+          a.click();
+          document.body.removeChild(a);
+        }
+        </script>
+      
+    <!-- Bootstrap JavaScript (Bootstrap 5) and your custom script -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="Script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+</body>
+</html> 

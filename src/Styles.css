@@ -1,0 +1,1158 @@
+body {
+  background-color: #eceae4;
+   
+  
+}
+
+.navbar {
+  font-family: "Kaushan Script", cursive;
+  font-size: 20px;
+}
+
+.waviy {
+  position: relative;
+}
+
+.waviy span {
+  position: relative;
+  display: inline-block;
+  font-size: 28px;
+  color: black;
+  text-transform: uppercase;
+  animation: flip 5s infinite;
+  animation-delay: calc(0.5s * var(--i));
+}
+
+@keyframes flip {
+  0%,
+  80% {
+    transform: rotateY(360deg);
+  }
+}
+
+@media (max-width: 990px) {
+  .navbar {
+    font-family: "Kaushan Script", cursive;
+    font-size: 20px;
+    background-color: #f3eee7;
+  }
+}
+
+/* Your custom CSS styles */
+.background-container {
+  background-image: url("/assets/images/index2.avif"); /* Update the path to your background image */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+  height: 100vh; /* Adjust the height as needed */
+  z-index: 0; /* Set a lower value for z-index to keep it behind the content */
+}
+
+
+
+
+/* Define custom margin for different screen sizes using media queries */
+@media (min-width: 992px) {
+  /* For screens equal to or wider than 992px (typically laptops and iPads) */
+  .custom-content-padding {
+    margin-top: 3rem; /* Adjust the margin as needed */
+  }
+}
+
+/* For smaller screens, no additional margin */
+@media (max-width: 991px) {
+  .custom-content-padding {
+    margin-top: 0; /* No additional margin for smaller screens */
+  }
+}
+
+/* Custom styles to create space for the fixed navbar on small screens */
+.custom-content-padding {
+  padding-top: 0; /* Initial padding */
+}
+
+@media (max-width: 767px) {
+  .custom-content-padding {
+    padding-top: 56px; /* Height of the fixed navbar on small screens */
+  }
+  .image-container {
+    position: relative;
+    display: inline-block;
+    margin-left: 100px;
+  }
+}
+
+@media (min-width: 1521px) {
+  .custom-content-padding {
+    padding-top: 100px;
+    padding-left: 200px;
+    margin-left: 100px;
+  }
+  .waviy span {
+    position: relative;
+    display: inline-block;
+    font-size: 40px;
+    color: black;
+    text-transform: uppercase;
+    animation: flip 7s infinite;
+    animation-delay: calc(0.5s * var(--i));
+  }
+}
+.custom-content-padding {
+  padding-top: 56px; /* Height of the fixed navbar on small screens */
+}
+
+@media (max-width: 590px) {
+  .image-container.text-center {
+    text-align: center;
+  }
+  .image-container.text-center img {
+    display: block;
+    margin: 0 auto;
+  }
+  .image-container {
+    position: relative;
+    display: inline-block;
+    margin-right: 80px;
+  }
+}
+
+@media (min-width: 710px) {
+  .custom-content-padding {
+    padding-top: 100px;
+    padding-left: 50px;
+  }
+  .image-container {
+    position: relative;
+    display: inline-block;
+    margin-left: 80px;
+  }
+}
+
+@media (min-width: 770px) {
+  .custom-content-padding {
+    margin-top: 50px;
+    padding-left: 50px;
+  }
+}
+
+.custom-content-padding {
+  margin-top: 20px; /* Add margin from the top for small screens */
+}
+
+@media (max-width: 767px) {
+  .custom-content-padding {
+    margin-top: 56px; /* Height of the fixed navbar on small screens */
+  }
+}
+
+#animated-image {
+  transition: transform 0.3s ease; /* Smooth image scaling */
+}
+
+.popup-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0); /* Initially scaled down and hidden */
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 5px;
+  border-radius: 5px;
+  transition: transform 2s ease, opacity 2s ease; /* Animation transitions */
+  pointer-events: none; /* Allows interactions with the image */
+  max-width: 120px; /* Set a maximum width for the message */
+  opacity: 0;
+}
+
+.popup-text::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent; /* Adjust the size of the "cloud" */
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid rgba(0, 0, 0, 0.7);
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.popup-text::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent; /* Adjust the size of the "cloud" */
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid rgba(0, 0, 0, 0.7);
+  top: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Add a class to the image container to trigger the text display */
+.image-container.show-popup .popup-text {
+  transform: translate(-50%, -50%) scale(1); /* Pop up text on image click */
+  opacity: 1; /* Make text visible on image click */
+}
+
+/* Keyframes animation to fade in the popup text */
+@keyframes fadeIn {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Apply the animation to the popup text */
+.popup-text.show {
+  animation: fadeIn 2s ease 1s forwards; /* Delay the animation by 1 second and maintain the final state */
+}
+
+/* Apply the animation to the image */
+.fade-in {
+  animation: fadeInImage 2s ease 1s forwards; /* Delay the animation by 1 second and maintain the final state */
+}
+
+/* Add your custom CSS styles here */
+.social-media-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.social-media-icons {
+  list-style: none;
+  padding: 0;
+}
+
+.social-media-icons li {
+  display: inline-block;
+  margin: 0 20px; /* Increase the margin to create a larger gap between images */
+}
+
+/* Apply the hover effect */
+.connect-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%;
+  transition: transform 0.2s; /* Add smooth transition for the transform property */
+}
+
+/* Define the hover transformation */
+.connect-img:hover {
+  transform: scale(1.2); /* Increase the image size by 20% on hover */
+}
+
+@media screen and (min-width: 1200px) {
+  /* Customize styles for larger screens if needed */
+  .connect-img {
+    height: 3rem;
+    border-radius: 50%;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1199px) {
+  .connect-img {
+    height: 3rem;
+    border-radius: 50%;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 999px) {
+  .connect-img {
+    height: 3rem;
+    border-radius: 50%;
+  }
+}
+
+@media (min-width: 700px) and (max-width: 799px) {
+  .connect-img {
+    height: 3rem;
+    border-radius: 50%;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 699px) {
+  .connect-img {
+    height: 3rem;
+    border-radius: 50%;
+  }
+}
+
+@media (min-width: 497px) and (max-width: 589px) {
+  .connect-img {
+    height: 2rem;
+    border-radius: 50%;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 499px) {
+  .connect-img {
+    height: 3rem;
+    border-radius: 50%;
+  }
+
+}
+
+@media (max-width: 399px) {
+  .connect-img {
+    height: 3rem;
+    border-radius: 50%;
+  }
+}
+
+
+
+/* Apply the animation to the popup text PROJECT PAGE*/
+* {
+  position: relative;
+}
+
+.animate-once {
+  animation: outer-left 1s 1s cubic-bezier(0.5, 0, 0.1, 1) both;
+}
+
+#app {
+  z-index: 100;
+}
+
+/* Adjust the hover effect without reducing opacity */
+#app:hover {
+  background-color: #f0efeb; /* Change the background color on hover */
+  /* Add any other styling you want for the hover effect */
+}
+
+
+#app {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  padding-bottom: 4vmin;
+  height: 90vh;
+  width: 100%;
+  background: #f7f5f3;
+  
+}
+
+
+
+@import url("https://fonts.googleapis.com/css2?family=Prata&display=swap");
+
+.title {
+  padding-left: 1em;
+  grid-column: 1 / -1;
+  grid-row: 1;
+  font-family: "Prata", serif;
+  font-size: 8vw;
+  width: 100%;
+  z-index: 2;
+}
+
+.title > .title-inner {
+  display: inline-block;
+}
+
+@keyframes text-clip {
+  from {
+    clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+  }
+  to {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+@keyframes outer-left {
+  from {
+    transform: translateX(50%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes inner-left {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+.cafe,
+.mozart {
+  animation: outer-left 1s 1s cubic-bezier(0.5, 0, 0.1, 1) both;
+}
+
+.title-inner {
+  display: inline-block;
+  animation: inner-left 1s 1s ease both;
+}
+
+.cafe-inner {
+  display: inline-block;
+  animation: inner-left 1s 1s ease both,
+    text-clip 1s 0s cubic-bezier(0.5, 0, 0.1, 1);
+}
+ 
+
+.mozart-inner {
+  animation: image-in 1s cubic-bezier(0.5, 0, 0.1, 1);
+}
+
+.title {
+  animation: outer-left 1s 1s ease both;
+}
+
+.cafe > .cafe-inner {
+  display: inline-block;
+}
+
+.mozart {
+  display: inline-block;
+}
+
+.image {
+  grid-row: 1;
+  grid-column: 2;
+  top: 0;
+  margin-left: -2rem;
+  opacity: 0.7;
+  animation: image-in 1s cubic-bezier(0.5, 0, 0.1, 1) 2s backwards;
+}
+.image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+@keyframes image-in {
+  from {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  to {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+.work-list {
+  position: absolute;
+  top: 0;
+  left: 0%; /* Adjust the left value to create some space from the left edge */
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  gap: 20px; /* Add gap between grid items */
+}
+
+.work {
+  width: 100%; /* Adjust the width to take the full available space in the grid cell */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.work img {
+  width: 90%; /* Adjusted to fill the width of the container */
+  height: 100%; /* Adjusted to fill the height of the container */
+  border-radius: 15px;
+  display: block;
+  transition: transform 0.5s;
+}
+
+.layer {
+  width: 100%;
+  height: 0%;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), #ff004f);
+  border-radius: 10px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-size: 14px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 40px;
+  text-align: center;
+  transition: height 0.5s;
+}
+
+.layer h3 {
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.layer a {
+  margin-top: 20px;
+  color: #ff004f;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 60px;
+  background: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.work:hover img {
+  transform: scale(1.1);
+}
+
+.work:hover .layer {
+  height: 105%;
+}
+
+/* Media query for responsive layout (adjust as needed) */
+@media (max-width: 500px) {
+  
+  /* For screens up to 767px (phones) */
+  #app {
+    display: block; /* Change to a block layout for phones */
+    height: auto; /* Remove fixed height for phones */
+  }
+
+  .title {
+    position: absolute;
+    font-size: 3rem; /* Reduce font size for phones */
+    text-align: center;/* Center-align the title for phones */
+    padding-left: 0; /* Remove left padding for phones */
+     /* Position the title absolutely */
+    top: 3%; /* Align the title vertically in the middle */
+    left: 0; /* Align the title to the left of its container */
+    transform: translateY(-50%); /* Center the title vertically */
+    width: 100%; /* Span the full width */
+  }
+
+  .image {
+    grid-row: 1; /* Place the image above the title */
+    grid-column: 1; /* Span the full width for phones */
+    margin: 0; /* Remove margin for phones */
+  }
+ 
+    
+  .work-list {
+    grid-template-columns: 1fr; /* One column for small screens */
+  margin-left: 3rem;
+    position: static; /* Remove the absolute positioning for phones */
+    width: 80%; /* Span the full width for phones */
+    height: 50%; /* Allow dynamic height for phones */
+  }
+  
+  .work {
+    margin: 0; /* Remove margin for phones */
+  }
+}
+@media (min-width: 500px)and (max-width: 802px) {
+  /* For screens up to 767px (phones) */
+  #app {
+    display: block; /* Change to a block layout for phones */
+    height: auto; /* Remove fixed height for phones */
+  }
+
+  .title {
+    position: absolute;
+    font-size: 5rem; /* Reduce font size for phones */
+    text-align: center;/* Center-align the title for phones */
+    padding-left: 0; /* Remove left padding for phones */
+     /* Position the title absolutely */
+    top: 2rem; /* Align the title vertically in the middle */
+    left: 0; /* Align the title to the left of its container */
+    transform: translateY(-50%); /* Center the title vertically */
+    width: 100%; /* Span the full width */
+  }
+
+  .image {
+    grid-row: 1; /* Place the image above the title */
+    grid-column: 1; /* Span the full width for phones */
+    margin: 0; /* Remove margin for phones */
+  }
+ 
+    
+  .work-list {
+    
+    grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+    position: static; /* Remove the absolute positioning for phones */
+    width: 100%; /* Span the full width for phones */
+    height: auto; /* Allow dynamic height for phones */
+  }
+  
+  .work {
+    margin: 0; /* Remove margin for phones */
+  }
+}
+
+@media (min-width: 805px)and (max-width: 1600px) {
+  .work {
+    height: 100%;
+    width: 100%; /* Adjust the width to take the full available space in the grid cell */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+  }
+  .work img {
+    width: 100%; /* Adjusted to fill the width of the container */
+    height: 100%; /* Adjusted to fill the height of the container */
+    border-radius: 10%;
+    display: block;
+    transition: transform 0.5s;
+  }
+  .work:hover img {
+    height: 100%;
+    transform: scale(1); /* Revert the scale effect */
+  }
+
+  .work:hover .layer {
+    height: 100%; /* Reset the layer height */
+    width: 100%;
+    border-radius: 10%;
+   
+  }
+  .image {
+    display: block; /* Show the image within this range */
+    opacity: 1; /* Reset the opacity */
+  left: 20%;
+    width: 80%;
+  }
+  
+ 
+}
+
+@keyframes moveIn {
+  from {
+      transform: translateX(-100%);
+      opacity: 0;
+  }
+  to {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
+/* CSS for button animation */
+.animated-button {
+  transition: transform 0.3s ease-in-out;
+}
+
+.animated-button:hover {
+  transform: scale(1.1); /* Scale the button to 110% on hover */
+}
+/* CSS for button animation */
+.lightning-button {
+  position: relative; /* Required for pseudo-elements */
+}
+
+.lightning-button::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  z-index: -1;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.lightning-button:hover::before {
+  opacity: 1;
+  animation: lightning 0.5s linear infinite;
+}
+
+@keyframes lightning {
+  0% {
+    transform: translateX(-50%);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-50%);
+    opacity: 1;
+  }
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+/* Styles for the success message container */
+.success-message {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #6BC0E2; /* Cloud-like blue color */
+  color: #fff; /* Text color */
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  z-index: 9999; /* Ensure it's on top of other elements */
+  transition: opacity 1s ease-in-out; /* Fade-in and fade-out animation */
+}
+
+/* Close button styles (optional) */
+#closeSuccessMessage {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  color: #fff;
+  cursor: pointer;
+}
+/* Style for the "Contact Form" section */
+#contactForm {
+  background-color: #d9bfb1;
+  ; /* Background color */
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Style for the "Contact Information" section */
+.con {
+  background-color: #f0ded0; /* Background color */
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Style for the contact icons */
+/* Style for the contact images */
+.con-img {
+  height: 30px; /* Set the height */
+  width: 30px; /* Set the width */
+  margin-right: 5px; /* Add some spacing between the icon and text */
+  border-radius: 50%; /* Make the images circular (optional) */
+  border: 2px solid #007BFF; /* Add a border (optional) */
+  padding: 5px; /* Add padding (optional) */
+}
+/* Style for the image */
+.img-fluid {
+  max-width: 100%; /* Ensure the image doesn't exceed its container */
+  height: auto; /* Maintain the aspect ratio */
+   /* Add a border (optional) */
+  border-radius: 50px; /* Add border radius (optional) */
+  
+}
+
+
+/* Additional styles for responsiveness */
+@media (max-width: 768px) {
+  /* Adjust styles for smaller screens here */
+  .con {
+      padding: 10px;
+  }
+  .con-img {
+      height: 20px;
+      width: 20px;
+  }
+}
+/* Custom styles for the "Submit" button */
+.btn-primary {
+  display: block;
+  margin: 0 auto;
+  background: linear-gradient(90deg,  #00B894, #D3A297, #87CEEB); /* Animated gradient background */
+  background-size: 200% 200%;
+  color: #fff; /* Text color */
+  border: none; /* Remove button border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 20px; /* Padding */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Cursor style */
+  margin-top: 10px;
+  align-self: center;
+  transition: background 0.5s ease; /* Smooth transition for the background */
+}
+
+.btn-primary:hover {
+  background-position: right; /* Animate the gradient background on hover */
+}
+
+
+
+@import url("https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@400;600;700&display=swap");
+
+
+h2 {
+	font-size: 2.5em;
+	text-decoration: underline;
+	@media (max-width: 768px) {
+		font-size: 1.3em;
+	}
+}
+
+.text-shadow {
+	font-style: italic;
+	text-transform: uppercase;
+	color: transparent;
+	-webkit-text-stroke: blue;
+	-webkit-text-stroke-width: 1px;
+	
+	transition: all 0.5s ease-in-out;
+	
+	animation: flicker 0.5s ease-in-out infinite alternate;
+
+	&:hover {
+		color: #fff;
+	}
+}
+
+.tags small {
+	@media (max-width: 768px) {
+		font-size: 0.5em;
+	}
+}
+
+@keyframes flicker {
+	0% {
+		opacity: 0.5;
+		text-shadow: 2px 2px 10px blue;
+	}
+	100% {
+		opacity: 1;
+		text-shadow: 2px 2px 20px blue;
+	}
+}
+
+
+
+/*skills*/
+.custom-margin-top {
+  margin-top: 80px; /* Adjust the value as needed */
+}
+.skill-content {
+  text-align: center; /* Center align the text */
+  color: #FF0000; /* Set the text color to red (you can change the color code) */
+}
+.grid-main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.grid-main .card {
+  background: #fff;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 20%;
+}
+
+@media (max-width: 753px) {
+  .grid-main {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width: 505px) {
+  .grid-main {
+    max-width: 500px;
+    grid-template-columns: repeat(1, 1fr);
+    justify-content: center;
+  }
+}
+
+.grid-main .card .circle{
+  position: relative;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  cursor: default;
+}
+.card .circle .box,
+.card .circle .box span{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.card .circle .box{
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  transition: all 0.2s;
+}
+.card .circle:hover .box{
+  transform: translate(-50%, -50%) scale(0.91);
+}
+.card .circle .box span,
+.grid-main .card .text{
+  background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.circle .box span{
+  font-size: 38px;
+  font-family: sans-serif;
+  font-weight: 600;
+  transform: translate(-45%, -45%);
+  transition: all 0.1s;
+}
+.card .circle:hover .box span{
+  transform: translate(-45%, -45%) scale(1.09);
+}
+.card .text{
+  font-size: 20px;
+  font-weight: 300;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
+.container-tech {
+  margin-top: 60px; /* You can adjust the value (40px in this example) to your desired top margin size */
+}
+.custom-h3 {
+  font-size: 30px;
+  font-family: 'Kalam', cursive;
+  text-align: center;
+}
+.skill-box .title{
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+.skill-box .skill-bar{
+    height: 8px;
+    width: 100%;
+    border-radius: 6px;
+    margin-top: 6px;
+    background: rgba(0,0,0,0.1);
+}
+.skill-bar .skill-per{
+    position: relative;
+    display: block;
+    height: 100%;
+    width: 90%;
+    border-radius: 6px;
+    background: #4070f4;
+    animation: progress 0.4s ease-in-out forwards;
+    opacity: 0;
+}
+.skill-per.css{
+    width: 70%;
+    animation-delay: 0.1s;
+}
+.skill-per.javascript{
+    width: 50%;
+    animation-delay: 0.2s;
+}
+.skill-per.nodejs{
+    width: 30%;
+    animation-delay: 0.3s;
+}
+@keyframes progress {
+    0%{
+        width: 0;
+        opacity: 1;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.skill-per .tooltip{
+    position: absolute;
+    right: -14px;
+    top: -28px;
+    font-size: 9px;
+    font-weight: 500;
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 3px;
+    background: #4070f4;
+    z-index: 1;
+}
+.tooltip::before{
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -2px;
+    height: 10px;
+    width: 10px;
+    z-index: -1;
+    background-color: #4070f4;
+    transform: translateX(-50%) rotate(45deg);
+
+}
+
+/* Your existing CSS (if any) */
+
+/* Center content container */
+
+/* Your custom CSS styles */
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+  background: linear-gradient(90deg, #40E0D0, #E6E6FA, #DAA520, #708090);
+  background-size: 400% 400%;
+  animation: gradient-animation 5s linear infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+/* Responsive container width */
+.content-container {
+  max-width: 768px; /* Set the maximum width for responsiveness */
+  width: 100%;
+}
+
+/* Education and certificates container */
+.education-certificates-container {
+  background-color: #ffffff;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Image column */
+.image-column {
+  text-align: center;
+}
+
+/* Right column */
+.info-column {
+  padding: 0 20px; /* Add spacing to the right */
+}
+
+
+/* Your custom CSS styles */
+/* Your custom CSS styles */
+
+/* Add a corner gradient animation to the container */
+.skill-container {
+  position: relative;
+  background-color: #000; /* Background color */
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f0efeb,#8B90CC, #eddcd2,  #D4A5A5);
+  background-size: 400% 400%;
+  animation: gradient-animation 5s linear infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+.contact-container {
+  position: relative;
+  background-color: #000;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(90deg, #f0efeb, #8B90CC, #eddcd2, #D4A5A5);
+  background-size: 200% 100%;
+  background-position: 0% 0%; /* Start from the left */
+  animation: gradient-animation 5s linear infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 100% 0%; /* Start from the right */
+  }
+  50% {
+    background-position: 0% 0%; /* Move apart to the center */
+  }
+  100% {
+    background-position: 100% 0%; /* Move apart to the right */
+  }
+}
+
+/* Add the following CSS to style the certificate buttons in a column with margin */
+
+
+.certificate-buttons {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px; /* Adjust the margin as needed */
+}
+
+.certificate-buttons button {
+  margin-bottom: 10px; /* Adjust the margin between buttons as needed */
+  border: 2px solid white;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #834bab 50%, transparent 50%); /* Teal Blue */
+  background-size: 100% 200%;
+  transition: background-position 0.5s;
+  color: #fff;
+  font-weight: bold;
+  font-family: "Montserrat";
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #b0e7b1; /* Teal Blue */
+    border-radius: 3px;
+    z-index: -1;
+    transition: transform 0.5s;
+  }
+
+  &:hover {
+    background-position: 0 100%;
+  }
+
+  &:hover::before {
+    transform: scaleX(1);
+  }
+}
